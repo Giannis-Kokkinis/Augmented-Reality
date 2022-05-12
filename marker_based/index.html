@@ -14,12 +14,73 @@
 
 
     <body style="margin : 0px; overflow: hidden;">
+
+      <script>
+                   AFRAME.registerComponent("marker-distance", {
+
+                       init: function () {
+                       this.hydrogen = document.querySelector('#HYDRO')
+                       this.oxygen = document.querySelector('#OXY')
+                       this.water = document.querySelector('#WATER')
+                       this.marker1 = document.querySelector('#oxymark')
+                       this.marker2 = document.querySelector('#hydromark')
+                       this.oxcard = document.querySelector('#O-card')
+                       this.hydrocard = document.querySelector('#H-card')
+                       this.h2ocard = document.querySelector('#H2O-card')
+                   },
+                   tick: function()
+                   {
+                       var marker1Pos, marker2Pos, markerDistance
+
+                       marker1Pos = new THREE.Vector3();
+                       this.marker1.object3D.getWorldPosition(marker1Pos);
+
+                       marker2Pos = new THREE.Vector3();
+                       this.marker2.object3D.getWorldPosition(marker2Pos);
+
+                       markerDistance = marker1Pos.distanceTo(marker2Pos);
+
+                       if (markerDistance<2)
+                       {
+
+                           this.hydrogen.setAttribute("visible", false)
+                           this.oxygen.setAttribute("visible", false)
+                           this.water.setAttribute("visible", true)
+                           this.oxcard.setAttribute("visible", false)
+                           this.hydrocard.setAttribute("visible", false)
+                           this.h2ocard.setAttribute("visible", true)
+                       }
+                       else
+                       {
+
+                           this.hydrogen.setAttribute("visible",true)
+                           this.oxygen.setAttribute("visible",true)
+                           this.water.setAttribute("visible", false)
+                           this.oxcard.setAttribute("visible", true)
+                           this.hydrocard.setAttribute("visible", true)
+                           this.h2ocard.setAttribute("visible", false)
+                       }
+                   },
+               });
+               </script>
+
+
+
+
+
+
+
+
         <a-scene
     vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true;"
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
   >
+
+
+
+
         <a-marker preset="hiro">
           <a-entity id="box" geometry="primitive: box; width: 0.2; depth: 0.2; height: 0.2" position="0 0 0" material="color: #4CC3D9"></a-entity>
     <a-sphere id="sphere" geometry="primitive: sphere; radius="0.2"  position="1 0 0.1" material="color: #4CC3D9"></a-sphere>
@@ -38,6 +99,10 @@
 <a-text text="value: giannis kokkinis"></a-text>
 <a-image src="assets/croki.jpg" position="0 1 1"></a-image>
 </a-marker>
+
+
+
+
   <a-assets> <a-asset-item id="H" src="assets/hydrogenmodelatom.gltf"></a-asset-item>                </a-assets>
   <a-assets> <a-asset-item id="O" src="assets/oxygenmodelatom.gltf"></a-asset-item>                </a-assets>
 
@@ -46,46 +111,45 @@
 
 
 
-<a-marker preset="pattern" type="pattern" url="assets/pattern-card-H.patt">
+<a-marker id="hydromark" preset="pattern" type="pattern" url="assets/pattern-card-H.patt">
 
 
-<a-image src="assets/card-H.png"></a-image>
+<a-image id="H-card" src="assets/card-H.png"></a-image>
 <a-entity id="HYDRO"
-                    position="0 1.5 0"
+                    position="0 1 0"
                     rotation="0 0 0"
-                    scale="0.3 0.3 0.3"
+                    scale="0.4 0.4 0.4"
                     gltf-model="#H"
                     animation__rotate = "property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 0 360 0; loop: true;"
                     visible="true">
           </a-entity>
-
-
-
-
-
+  <a-image id="H2O-card" src="assets/card-H2O.png"></a-image>
+          <a-entity id="WATER"
+                              position="0 1 0"
+                              rotation="0 0 0"
+                              scale="0.4 0.4 0.4"
+                              gltf-model="#H2O"
+                              animation__rotate = "property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 0 360 0; loop: true;"
+                              visible="false">
+                    </a-entity>
 
 
 
 
 </a-marker>
 
-<a-marker preset="pattern" type="pattern" url="assets/pattern-card-O.patt">
+<a-marker id="oxymark" preset="pattern" type="pattern" url="assets/pattern-card-O.patt">
 
 
-<a-image src="assets/card-O.png"></a-image>
+<a-image  id="O-card"  src="assets/card-O.png"></a-image>
 <a-entity id="OXY"
-                    position="0 1.5 0"
+                    position="0 1 0"
                     rotation="0 0 0"
-                    scale="0.3 0.3 0.3"
+                    scale="0.4 0.4 0.4"
                     gltf-model="#O"
                     animation__rotate = "property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 0 360 0; loop: true;"
                     visible="true">
           </a-entity>
-
-
-
-
-
 
 
 
