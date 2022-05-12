@@ -20,21 +20,20 @@
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
   >
-  <a-marker preset="hiro">
-      <a-entity id="box" geometry="primitive: box; width: 0.2; depth: 0.2; height: 0.2" position="0 0 0" material="color: #4CC3D9"></a-entity>
-      <a-sphere id="sphere" geometry="primitive: sphere; radius="0.2"  position="1 0 0.1" material="color: #4CC3D9"></a-sphere>
-      <a-cylinder id="cylinder"  geometry="primitive: cylinder; material="color: #4CC3D9" height="0.2" radius="0.4" position="-1 0 0.3"        </a-cylinder>
+        <a-marker preset="hiro">
+          <a-entity id="box" geometry="primitive: box; width: 0.2; depth: 0.2; height: 0.2" position="0 0 0" material="color: #4CC3D9"></a-entity>
+    <a-sphere id="sphere" geometry="primitive: sphere; radius="0.2"  position="1 0 0.1" material="color: #4CC3D9"></a-sphere>
+    <a-cylinder id="cylinder"  geometry="primitive: cylinder; material="color: #4CC3D9" height="0.2" radius="0.4" position="-1 0 0.3"        </a-cylinder>
+        </a-marker>
 
-<a-entity id="annyang" annyang-speech-recognition></a-entity>
+        <a-entity id="annyang" annyang-speech-recognition></a-entity>
 
+        <a-entity id="command" position="0 2.25 -15" particle-system="preset: snow" visible="false"
+        speech-command__show="command: start; type: attribute; attribute: visible; value: true;"
+                      speech-command__hide="command: stop; type: attribute; attribute: visible; value: false;">
+                    </a-entity>
 
-<a-entity id="command" position="0 2.25 -15" particle-system="preset: snow" visible="false"
-speech-command__show="command: start; type: attribute; attribute: visible; value: true;"
-              speech-command__hide="command: stop; type: attribute; attribute: visible; value: false;">
-            </a-entity>
-
-
-<a-marker preset="pattern"type="pattern" url="assets/dpsd19055.patt">
+                    <a-marker preset="pattern"type="pattern" url="assets/dpsd19055.patt">
 
 <a-text text="value: giannis kokkinis"></a-text>
 <a-image src="assets/croki.jpg"></a-image>
@@ -56,8 +55,7 @@ speech-command__show="command: start; type: attribute; attribute: visible; value
 
 
 
-         <a-entity camera></a-entity>
-
+        <a-entity camera></a-entity>
         </a-scene>
     </body>
 </html>
