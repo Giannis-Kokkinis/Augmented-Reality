@@ -38,18 +38,59 @@
 <a-text text="value: giannis kokkinis"></a-text>
 <a-image src="assets/croki.jpg" position="0 1 1"></a-image>
 </a-marker>
+  <a-assets> <a-asset-item id="H" src="assets/hydrogenmodelatom.gltf"></a-asset-item>                </a-assets>
+  <a-assets> <a-asset-item id="O" src="assets/oxygenmodelatom.gltf"></a-asset-item>                </a-assets>
+
+<a-assets> <a-asset-item id="H2O" src="assets/h2oodelatom.gltf"></a-asset-item>                </a-assets>
+
+
+
 
 <a-marker preset="pattern" type="pattern" url="assets/pattern-card-H.patt">
 
 
 <a-image src="assets/card-H.png"></a-image>
+<a-entity id="HYDRO"
+                    position="0 1.5 0"
+                    rotation="0 0 0"
+                    scale="0.3 0.3 0.3"
+                    gltf-model="#H"
+                    animation__rotate = "property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 0 360 0; loop: true;"
+                    visible="true">
+          </a-entity>
+
+
+
+
+
+
+
+
+
 </a-marker>
 
 <a-marker preset="pattern" type="pattern" url="assets/pattern-card-O.patt">
 
 
 <a-image src="assets/card-O.png"></a-image>
+<a-entity id="OXY"
+                    position="0 1.5 0"
+                    rotation="0 0 0"
+                    scale="0.3 0.3 0.3"
+                    gltf-model="#O"
+                    animation__rotate = "property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 0 360 0; loop: true;"
+                    visible="true">
+          </a-entity>
+
+
+
+
+
+
+
+
 </a-marker>
+
 
 
 
