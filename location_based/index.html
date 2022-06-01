@@ -16,6 +16,7 @@
 		embedded
 		arjs='sourceType: webcam; debugUIEnabled: false;'>
 
+<a-assets> <a-asset-item id="campnou" src="assets/campnou.gltf"></a-asset-item>  </a-assets>
 
     <a-entity id="campnou"
                         position="1 1 1"
@@ -26,7 +27,7 @@
                         animation__rotate = "property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 0 360 0; loop: true;"
                         visible="true">
               </a-entity>
-        
+
 
         <a-camera
             rotation-reader
@@ -35,5 +36,3 @@
 		</a-camera>
 	</a-scene>
 </body>
-
-<a-assets> <a-asset-item id="campnou" src="assets/campnou.gltf"></a-asset-item>  </a-assets>
