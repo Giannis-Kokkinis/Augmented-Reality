@@ -16,11 +16,17 @@
 		embedded
 		arjs='sourceType: webcam; debugUIEnabled: false;'>
 
-        <a-box
-            material="color: red;"
-            scale="20 20 20"
-            gps-entity-place="latitude: 41.380898; longitude: 2.122820;">
-        </a-box>
+
+    <a-entity id="campnou"
+                        position="1 1 1"
+                        rotation="0 0 -160"
+                        scale="0.4 0.4 0.4"
+                        gltf-model="#campnou"
+                        gps-entity-place="latitude: 41.380898; longitude: 2.122820;"
+                        animation__rotate = "property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 0 360 0; loop: true;"
+                        visible="true">
+              </a-entity>
+        
 
         <a-camera
             rotation-reader
@@ -31,12 +37,3 @@
 </body>
 
 <a-assets> <a-asset-item id="campnou" src="assets/campnou.gltf"></a-asset-item>  </a-assets>
-
-<a-entity id="campnou"
-                    position="1 1 1"
-                    rotation="0 0 -160"
-                    scale="0.4 0.4 0.4"
-                    gltf-model="#campnou"
-                    animation__rotate = "property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 0 360 0; loop: true;"
-                    visible="true">
-          </a-entity>
